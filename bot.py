@@ -23,4 +23,4 @@ async def on_message(message):
             await message.author.send("Hej, " + str(message.author) + "\n\nDitt medelande var:" + str(message.content) + "\n\n" + str(i +1) + "/" + str(len(str(message.content) * 30)) + "\n\n.")
         
 
-Bot.run('NzY4NTU0NzM4NTA5NDE0NDIx.X5CKYA.o8PwUccc7YKYFgOkUqvCmynh388')
+Bot.run('dc_token')
