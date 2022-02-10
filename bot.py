@@ -1,5 +1,5 @@
 import discord
-
+import api
 
 Bot = discord.Client()
 
@@ -16,11 +16,18 @@ async def on_message(message):
     if message.author == Bot.user:
         return
 
-    if message.content.startswith(''):
+    if message.content.startswith('>>search'):
         print(str(message.author) + ": " + str(message.content))
-        for i in range(len(str(message.content) * 30)):
-            print(i +1)
-            await message.author.send("Hej, " + str(message.author) + "\n\nDitt medelande var:" + str(message.content) + "\n\n" + str(i +1) + "/" + str(len(str(message.content) * 30)) + "\n\n.")
-        
 
+        msg = str(message.content).split(" ")
+        try:
+            try:
+                msg = api.Games(msg[1], msg[2]).search()
+            except:
+                msg = api.Games(msg[1]).search()
+        except:
+            msg = "no input"
+            
+        await message.channel.send(msg)
+        
 Bot.run('dc_token')
