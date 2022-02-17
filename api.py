@@ -41,5 +41,5 @@ class Games:
 testing = False
 
 if testing == True:
-    wow = Games("pokemon") # Note to user: works bether with one word. (It takes the last word as the console/platform)
+    wow = Games("pokemonX") # Note to user: works bether with one word. (It takes the last word as the console/platform)
     print(wow.search())
