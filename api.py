@@ -1,4 +1,5 @@
 import requests
+import setup
 
 class Games:
     def __init__(self, game = "1872564715g45h5r2111hguk", platform = ""):
@@ -13,9 +14,11 @@ class Games:
             response = (response["products"])
             return_object = str()
 
-            if len(response) > 5: # set a maximum for results
-                top = 5
-            if len(response) < 5:
+            num = setup.responses
+
+            if len(response) > num: # set a maximum for results
+                top = num
+            if len(response) < num:
                 top = len(response)
 
             for i in range(0, top):
