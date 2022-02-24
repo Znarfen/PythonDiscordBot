@@ -9,7 +9,8 @@ class Games:
     def search(self): # Wear info is taken
         
         try:
-            response = requests.get("https://www.pricecharting.com/api/products?t=c0b53bce27c1bdab90b1605249e600dc43dfd1d5&q=" + self.game + " " + self.platform) # api + key words
+            api = "https://www.pricecharting.com/api/products?t=c0b53bce27c1bdab90b1605249e600dc43dfd1d5&q="
+            response = requests.get(api + self.game + " " + self.platform) # api + key words
             response = response.json()
             response = (response["products"])
             return_object = str()
@@ -36,7 +37,8 @@ class Games:
         
         except:
             try:
-                response = requests.get("https://www.pricecharting.com/api/products?t=c0b53bce27c1bdab90b1605249e600dc43dfd1d5&q=pokemonX 3ds")
+                api = "https://www.pricecharting.com/api/products?t=c0b53bce27c1bdab90b1605249e600dc43dfd1d5&q=pokemonX 3ds"
+                response = requests.get(api)
                 return("Could not locate the game!")
             except:
                 return("Could not conect to API!")

@@ -1,5 +1,5 @@
 
-f = open("setup.txt", "r")
+f = open("settings.txt", "r")
 text = (f.read()).split('\n')
 
 line1 = text[0].split(' ')
@@ -14,4 +14,3 @@ try:
 
 except:
     responses = 1
-

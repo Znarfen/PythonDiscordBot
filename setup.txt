@@ -1,3 +1,0 @@
-token: discort_token
-prefix: >>
-number_of_responses: 5

@@ -20,6 +20,12 @@ async def on_message(message):
     if message.author == Bot.user:
         return
 
+    if message.content.startswith(prefix + 'help'):
+        msg = prefix + "help\n"
+        msg += "Show a list of comands\n\n"
+        msg += prefix + "search\n"
+        msg += "Let you search for a game"
+
     if message.content.startswith(prefix + 'search'):
         print(str(message.author) + ": " + str(message.content))
 
