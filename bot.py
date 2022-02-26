@@ -1,6 +1,6 @@
 import discord
-import api
-import setup
+import api # from api.py
+import setup # from setup.py
 
 Bot = discord.Client()
 
@@ -14,6 +14,8 @@ try:
 
 except:
     print('Bot faild to go online!')
+    # somthing went wrong
+    # exampel: no internet
 
 @Bot.event
 async def on_message(message):
@@ -21,6 +23,8 @@ async def on_message(message):
         return
 
     if message.content.startswith(prefix + 'help'):
+        # msg => is the message the bot gives
+
         msg = prefix + "help\n"
         msg += "Show a list of comands\n\n"
 
@@ -42,11 +46,13 @@ async def on_message(message):
                 msg = api.Games(user_msg[1]).search()
         except:
             msg = "no input"
+            # did not locate the game
 
         await message.channel.send(msg)
 
+#trying the token
 try:
     Bot.run(token)
-
 except:
     print("Token does not exist!")
+    
