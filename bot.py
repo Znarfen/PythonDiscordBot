@@ -2,24 +2,24 @@ import discord
 import api # from api.py
 import setup # from setup.py
 
-Bot = discord.Client()
+bot = discord.Client()
 
 prefix = setup.prefix
 token = setup.token
 
 try:
-    @Bot.event
+    @bot.event
     async def on_ready():
-        print('Bot is online as {0.user}'.format(Bot))
+        print('Bot is online as {0.user}'.format(bot))
 
 except:
     print('Bot faild to go online!')
     # somthing went wrong
     # exampel: no internet
 
-@Bot.event
+@bot.event
 async def on_message(message):
-    if message.author == Bot.user:
+    if message.author == bot.user:
         return
 
     if message.content.startswith(prefix + 'help'):
@@ -32,6 +32,8 @@ async def on_message(message):
         msg += "Let you search for a game,"
         msg += "exampel: " + prefix + "search [the game] [console] "
         msg += "Note that it takes the last word as the console/platform)\n"
+
+        await message.channel.send(msg)
 
     if message.content.startswith(prefix + 'search'):
         print(str(message.author) + ": " + str(message.content))
@@ -52,7 +54,7 @@ async def on_message(message):
 
 #trying the token
 try:
-    Bot.run(token)
+    bot.run(token)
 except:
     print("Token does not exist!")
     

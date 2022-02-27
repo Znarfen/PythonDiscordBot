@@ -27,11 +27,11 @@ class Games:
             for i in range(0, top): # list all results in a str object
                 
                 try:
-                    Name = "Name:                           "
-                    Console = "Console/Platform:     "
+                    name = "Name:                           "
+                    console = "Console/Platform:     "
 
-                    return_object += Name + response[i]['product-name'] + "\n"
-                    return_object += Console + response[i]['console-name']
+                    return_object += name + response[i]['product-name'] + "\n"
+                    return_object += console + response[i]['console-name']
                     return_object += "\n\n"
           
                 except:
