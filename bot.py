@@ -52,7 +52,7 @@ async def on_message(message):
 
         await message.channel.send(msg)
 
-#trying the token
+# trying the token
 try:
     bot.run(token)
 except:
